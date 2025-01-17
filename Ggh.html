@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ff4d4d; /* Red background */
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box, .welcome-box {
+            border: 2px solid #333;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .welcome-box img {
+            width: 90%;
+            max-width: 600px;
+            height: auto;
+            margin-top: 20px;
+            border: 10px solid transparent;
+            border-image: url('https://cdn.pixabay.com/photo/2016/03/26/22/13/flowers-1282341_1280.png') 30 round; /* Flower border */
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box" id="loginBox">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Enter username" required>
+                <input type="password" id="password" placeholder="Enter password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div class="welcome-box" id="welcomeBox" style="display: none;">
+            <h2 id="welcomeMessage"></h2>
+            <img src="IMG-20250117-WA0000.jpg" alt="Uploaded Image">
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginBox = document.getElementById('loginBox');
+        const welcomeBox = document.getElementById('welcomeBox');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (password === "1234") {
+                welcomeMessage.textContent = `Welcome, ${username}`;
+                loginBox.style.display = 'none';
+                welcomeBox.style.display = 'block';
+            } else {
+                alert("Incorrect password! Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
